@@ -1,5 +1,6 @@
 """Defines parameters of algorithm"""
 import torch
+
 #########################################################
 # Physical Parameters
 #########################################################
@@ -14,7 +15,7 @@ C_alpha = 1    # B(v,v*) = C_alpha |v-v*|^alpha
 #########################################################
 # Simulation Input Parameters
 #########################################################
-N = 300_000        # number of MC paths drawn
+N = 50_000        # number of MC paths drawn
 n_total  = 60  # total number of times to run simulation
 delta_t = 0.01 # time step size
 

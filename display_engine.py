@@ -69,7 +69,7 @@ def save_2d_histograms_gif(velocity_history):
     filenames = [f"frames/frame_{i:04d}.png" for i in range(time)]
 
     # Create a GIF
-    gif_path = "particle_animation.gif"
+    gif_path = "solution_animation.gif"
     with imageio.get_writer(gif_path, mode='I', duration=0.8) as writer:
         for filename in filenames:
             image = imageio.imread(filename)

@@ -8,8 +8,8 @@ with collision kernel given by
 $B(|v - v_*|) = C_\alpha |v - v_*|^\alpha, \qquad \alpha \in [0,1]$.
 
 ##
-Simulation parameters found in *config.py*:
-* Knudsen number ($= Kn$)
-* 
-  
+Simulation parameters and initial data are found in *config.py*.
+Bird's variable hard sphere algorithm can be foudn in *main.py*.
+Accuracy testing for collisional laws and sampling can be found in *tests.py*.
+
 

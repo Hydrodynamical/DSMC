@@ -18,7 +18,7 @@ for _ in range(M):
     sigma_y = 10*torch.rand(1)
     f_initial.append([1/M, [mu_x, mu_y, sigma_x, sigma_y]])
 
-N = 1_000
+N = 500
 momentum_tolerance = 0.000001
 energy_tolerance =   0.000001
 
