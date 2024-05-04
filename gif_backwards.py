@@ -1,5 +1,5 @@
 import imageio
-time = 40
+time = 45
 # Filepaths for the frames
 filenames = [f"frames/frame_{i:04d}.png" for i in range(time,-1, -1)]
 

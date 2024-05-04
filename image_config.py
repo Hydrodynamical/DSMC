@@ -11,7 +11,7 @@ import numpy as np
 # Q_sigma = integral min{B(v, v_*), sigma}f(v')f(v_*') - f
 epsilon = 1     # Knusen number
 rho = 1         # total mass of system 
-alpha = 0.25       # = 1 for hard spheres
+alpha = 0.5       # = 1 for hard spheres
 C_alpha = 1    # B(v,v*) = C_alpha |v-v*|^alpha
 
 #########################################################
