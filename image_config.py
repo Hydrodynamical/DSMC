@@ -11,14 +11,14 @@ import numpy as np
 # Q_sigma = integral min{B(v, v_*), sigma}f(v')f(v_*') - f
 epsilon = 1     # Knusen number
 rho = 1         # total mass of system 
-alpha = 0.5       # = 1 for hard spheres
+alpha = 0.25       # = 1 for hard spheres
 C_alpha = 1    # B(v,v*) = C_alpha |v-v*|^alpha
 
 #########################################################
 # Simulation Input Parameters
 #########################################################
-N = 80_000     # number of MC paths drawn
-n_total  = 100 # total number of times to run simulation
+N = 750_000     # number of MC paths drawn
+n_total  = 45 # total number of times to run simulation
 delta_t = 0.01 # time step size
 
 #########################################################
@@ -47,7 +47,7 @@ np_greyscale = np_image.mean(axis = 2)
 
 # # Show or save the result
 # image_greyscale.show()
-print(np_greyscale)
+# print(np_greyscale)
 #########################################################
 # Initial Function
 #########################################################
@@ -65,8 +65,8 @@ for i in range(height):
         if np_greyscale[i,j] < 10:
             mu_x = j
             mu_y = height - i
-            sigma_x = 0.001
-            sigma_y = 0.001
+            sigma_x = 0.3
+            sigma_y = 0.3
             f_initial.append([1, [mu_x, mu_y, sigma_x, sigma_y]])
 
 def B(v_i, v_j):
