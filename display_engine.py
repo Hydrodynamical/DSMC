@@ -5,6 +5,17 @@
 import matplotlib.pyplot as plt
 import os
 import imageio
+from matplotlib.colors import LinearSegmentedColormap
+
+# Define the colors and their corresponding positions in the colormap
+colors = [(1, 1, 1), (0, 0, 0)]  # Black to White
+positions = [0, 1]  # Positions for black and white
+
+# Create the LinearSegmentedColormap
+bw_cmap = LinearSegmentedColormap.from_list("black_white", list(zip(positions, colors)))
+
+vmin = 0
+vmax = 50
 
 def display_time_series(velocity_history):
     """Display the velocity history as a time series, with lines connecting the particles."""
@@ -56,11 +67,10 @@ def save_2d_histograms_gif(velocity_history):
         #Flatten the list of velocities across all timesteps
         v_x = [v[0].item() for v in velocity_history[i]]
         v_y = [v[1].item() for v in velocity_history[i]]
-        plt.hist2d(v_x, v_y, bins=450, cmap='inferno',      # coolwarm for color inverse
-                   range = [[0, 220], [0, 340]])
+        plt.hist2d(v_x, v_y, bins=200, cmap=bw_cmap,      # coolwarm for color inverse
+                   range = [[0, 220], [0, 340]],
+                   vmin = vmin, vmax = vmax)
         plt.title(f"Time: {i}")
-
-        # Add a colorbar to show the color scale
         plt.colorbar()
 
         # Save frame
@@ -73,7 +83,7 @@ def save_2d_histograms_gif(velocity_history):
 
     # Create a GIF
     gif_path = "solution_animation.gif"
-    with imageio.get_writer(gif_path, mode='I', duration=0.8) as writer:
+    with imageio.get_writer(gif_path, mode='I', duration=0.5) as writer:
         for filename in filenames:
             image = imageio.imread(filename)
             writer.append_data(image)
