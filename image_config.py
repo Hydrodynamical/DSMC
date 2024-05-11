@@ -11,15 +11,15 @@ import numpy as np
 # Q_sigma = integral min{B(v, v_*), sigma}f(v')f(v_*') - f
 epsilon = 1     # Knusen number
 rho = 1         # total mass of system 
-alpha = 0.5       # = 1 for hard spheres
+alpha = 1       # = 1 for hard spheres
 C_alpha = 1    # B(v,v*) = C_alpha |v-v*|^alpha
 
 #########################################################
 # Simulation Input Parameters
 #########################################################
-N = 150_000     # number of MC paths drawn
-n_total  = 30 # total number of times to run simulation
-delta_t = 0.01 # time step size
+N = 500_000     # number of MC paths drawn
+n_total  = 60 # total number of times to run simulation
+delta_t = 0.001 # time step size
 
 #########################################################
 # Load image
