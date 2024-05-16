@@ -2,7 +2,8 @@ from PIL import Image
 import numpy as np
 
 # Load an image
-image = Image.open('frog.jpg')
+# image = Image.open('frog.jpg')
+image = Image.open('coffee.jpg')
 
 # Load the pixel map
 pixels = image.load()
@@ -15,6 +16,7 @@ np_image = np.array(image)
 
 # Perform operations using NumPy (e.g., invert colors)
 np_greyscale = np_image.mean(axis = 2)
+
 # print(np_greyscale.shape)
 # output = (340, 220)
 

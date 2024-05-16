@@ -63,12 +63,12 @@ def save_2d_histograms_gif(velocity_history):
     # iterate over time
     time = len(velocity_history)
     for i in range(time):
-        plt.figure(figsize=(11, 17))
+        plt.figure(figsize=(10, 10))
         #Flatten the list of velocities across all timesteps
         v_x = [v[0].item() for v in velocity_history[i]]
         v_y = [v[1].item() for v in velocity_history[i]]
         plt.hist2d(v_x, v_y, bins=300, cmap=bw_cmap,      # coolwarm for color inverse
-                   range = [[0, 220], [0, 340]],
+                   range = [[0, 1024], [0, 1024]],
                    vmin = vmin, vmax = vmax)
         plt.title(f"Time: {i}")
         plt.colorbar()

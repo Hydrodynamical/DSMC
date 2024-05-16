@@ -18,14 +18,14 @@ C_alpha = 1    # B(v,v*) = C_alpha |v-v*|^alpha
 # Simulation Input Parameters
 #########################################################
 N = 500_000     # number of MC paths drawn
-n_total  = 60 # total number of times to run simulation
-delta_t = 0.001 # time step size
+n_total  = 50 # total number of times to run simulation
+delta_t = 0.0005 # time step size
 
 #########################################################
 # Load image
 #########################################################
 # Load an image
-image = Image.open('frog.jpg')
+image = Image.open('coffee.jpg')
 
 # Load the pixel map
 pixels = image.load()
@@ -39,8 +39,8 @@ np_image = np.array(image)
 # Perform operations using NumPy (e.g., invert colors)
 np_greyscale = np_image.mean(axis = 2)
 
-# print(np_greyscale.shape)
-# output = (340, 220)
+print(np_greyscale.shape)
+# output = (340, 220) for frog.jpg
 
 # # Convert back to PIL Image
 # image_greyscale = Image.fromarray(np_greyscale)
@@ -52,8 +52,8 @@ np_greyscale = np_image.mean(axis = 2)
 # Initial Function
 #########################################################
 f_initial = []
-height = 340
-width = 220
+height = 1024
+width = 1024
 
 for i in range(height):
     for j in range(width):
@@ -65,8 +65,8 @@ for i in range(height):
         if np_greyscale[i,j] < 10:
             mu_x = j
             mu_y = height - i
-            sigma_x = 0.3
-            sigma_y = 0.3
+            sigma_x = 0.5
+            sigma_y = 0.5
             f_initial.append([1, [mu_x, mu_y, sigma_x, sigma_y]])
 
 def B(v_i, v_j):
